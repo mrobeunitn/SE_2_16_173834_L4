@@ -5,7 +5,7 @@
     <body>
         
          <form method='post'id='searchId' action='index.js' style="display:block">
-            <input type='text' name='id' id='id' placheholder='id' value="(:id:)">
+            <input type='text' name='id' id='ids' placheholder='id' value="(:id:)">
             <input type='submit' name='' id=''  value='Search'>
         </form>
         

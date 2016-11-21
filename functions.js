@@ -19,3 +19,8 @@ function showForm(){
     document.getElementById("vis").innerHTML = "NascondiForm";
 }
 
+
+function searchId(var id){
+    
+    
+}
