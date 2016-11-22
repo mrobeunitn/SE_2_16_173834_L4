@@ -1,11 +1,11 @@
 <html>
     <head>
-        <script src="functions.js"></script>
+        <script src="/static/functions.js"></script>
     </head>
     <body>
         
-         <form method='post'id='searchId' action='http://127.0.0.1:5000/ricerca' style="display:block">
-            <input type='number' id='ids' placheholder='id' value="(:id:)" required>
+         <form method='post'id='searchId' action='ricerca' style="display:block">
+            <input type='number' name='ids' id='ids' placheholder='id' value="(:id:)" required>
             <input type='submit' name='' id='' onclick="sendIdForm()" value='Search'>
         </form>
         

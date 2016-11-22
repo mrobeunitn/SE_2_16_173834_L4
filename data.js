@@ -9,9 +9,14 @@ function mapEmployees(id,nome,cognome,livello,salario){
         level : livello,
         salary: salario
     }
-    employee.append(impiegato);
+    employee.push(impiegato);
 }
 
 exports.getEmployees = function getEmployees(){
     return employee;
 }
+
+mapEmployees(0,"Marco","Roberti",10,5);
+mapEmployees(1,"Marco","Roberti",10,5);
+
+console.log(employee.length);

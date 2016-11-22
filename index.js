@@ -2,12 +2,14 @@
 var express = require('express');
 //inspect
 var util = require('util');
+var bind = require('bind');
+var path  = require('path');
 
 //instantiate express
 var app = express();
-
+var scripts = require('./scripts.js');
 var datajs = require("./data.js");
-var scripts = require("./functions.js");
+
 //POST
 var bodyParser = require('body-parser');
 
@@ -20,12 +22,24 @@ app.set('port', (process.env.PORT || 1337));
 var id;
 app.set('port', (process.env.PORT || 5000));
 
-/*app.use('/', function(request, response) 
+app.use('/static', express.static(path.join(__dirname, 'public')));
+
+app.get('/', function(request, response) 
 {
-    text = "lel";
-	response.writeHead(200, {'Content-Type': 'text/html'});
-   // response.end(text);	
+    bind.toFile('index.tpl', 
+	{
+        
+    }, 
+    function(data) 
+    {
+        //write response
+        response.writeHead(200, {'Content-Type': 'text/html'});
+        response.end(data);
+    });
 });
+    //text = "lel";
+	//response.writeHead(200, {'Content-Type': 'text/html'});
+   // response.end(text);
 
 //post per ricerca
 /*
@@ -40,33 +54,36 @@ app.post('/ricerca', function(req,res){
 //post per inserimento
 
 app.post('/ricerca', function(req,res){
-    var headers = {};
-    headers["Access-Control-Allow-Origin"] = "*"; //for cross enviroment request
-    headers["Access-Control-Allow-Methods"] = "POST, GET, PUT, DELETE, OPTIONS";//methods allowed to responce
-    headers["Access-Control-Allow-Credentials"] = false;
-    headers["Access-Control-Max-Age"] = '86400'; // 24 hours
-    headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept"; //type of headers
-    //answer
-    headers["Content-Type"] = "application/json";//format response
-    res.writeHead(200, headers);
-    
     var userId = req.body.ids;
+    console.log("index"+userId);
     var employees = datajs.getEmployees();
+    console.log(employees[1]);
     var pos = scripts.searchId(userId) ;
-    scripts.searchId(userId);
+    console.log("script ok");
+    var emp = {"id": "-1", "name": "Non esiste", "surname": "Non esiste", "level":"-1", "salary": "-1"};
     if(pos != -1){
-        var emp = employees[pos];
-        var json = JSON.stringify({ 
-    	 "employee" :emp
-        });
+        emp = employees[pos];
     }
-    text = req.body.ids;
-    res.end(json);	
-    
+    else{
+      /*  emp.id = null;
+        emp.name = null;
+        emp.surname = null;
+        emp.level = null;
+        emp.salary = null;*/
+        console.log(emp);
+        
+    }
+    bind.toFile('index.tpl',emp, 
+    function(data) 
+    {
+        //write response
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        res.end(data);
+    });	
    //inserisc
     /*text = "lel";
     res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end(text);*/ console.log(util.inspect(req.body));//mapEmployees(request.body.id,request.body.name,request.body.surname,request.body.level,request.body.salary);
+    res.end(text);*/ //console.log(util.inspect(req.body));//mapEmployees(request.body.id,request.body.name,request.body.surname,request.body.level,request.body.salary);
 });
 
 app.listen(app.get('port'), function() {
