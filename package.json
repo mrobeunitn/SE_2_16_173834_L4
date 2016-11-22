@@ -1,0 +1,23 @@
+{
+  "name": "forms",
+  "version": "1.0.0",
+  "description": "input forms",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.15.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrobeunitn/SE_2_16_173834_L4.git"
+  },
+  "author": "Marco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mrobeunitn/SE_2_16_173834_L4/issues"
+  },
+  "homepage": "https://github.com/mrobeunitn/SE_2_16_173834_L4#readme"
+}

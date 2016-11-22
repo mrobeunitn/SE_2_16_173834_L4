@@ -11,3 +11,7 @@ function mapEmployees(id,nome,cognome,livello,salario){
     }
     employee.append(impiegato);
 }
+
+exports.getEmployees = function getEmployees(){
+    return employee;
+}
