@@ -16,6 +16,11 @@ exports.getEmployees = function getEmployees(){
     return employee;
 }
 
+exports.addEmployee = function addEmployee(emp){
+    //inserisco e poi ordino 
+    employee.push(emp);
+    employee.sort(function(emp1,emp2){return emp1.id-emp2.id});
+}
 mapEmployees(0,"Marco","Roberti",10,5);
 mapEmployees(1,"Marco","Roberti",10,5);
 

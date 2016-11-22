@@ -8,6 +8,7 @@ function resetLabels(){
 }
 //funzione che utilizzo per mostrare o nascondere il form 
 function visualizzaForm(){
+     document.getElementById("formAdd").reset();
     if(document.getElementById("formAdd").style.display == 'none'){
         showForm();
     }

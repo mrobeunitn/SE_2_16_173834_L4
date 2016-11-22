@@ -17,9 +17,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //JSON post
 app.use(bodyParser.json());
 
-app.set('port', (process.env.PORT || 1337));
-//mi creo un id per fare la ricerca
-var id;
 app.set('port', (process.env.PORT || 5000));
 
 app.use('/static', express.static(path.join(__dirname, 'public')));
@@ -41,11 +38,30 @@ app.get('/', function(request, response)
 //post per inserimento
 
 app.post('/inserimento', function(req,res){
-    //qui cerco e inserisco nel form
-     id = request.body.ids;
-     var pos = searchId(id);
-    if(pos != -1){   
+    //qui recupero i dati e aggiungo all'array di impiegati
+    var empl = datajs.getEmployees();
+    var emp = {
+        "id" : req.body.id,
+        "name":req.body.name,
+        "surname":req.body.surname,
+        "level":req.body.level,
+        "salary":req.body.salary  
+    };
+    
+    //chiamo la funzione che si preoccupa dell'inserimento
+    scripts.insertEmployee(emp);
+    
+    for(i = 0 ; i < empl.length; i++ ){
+        console.log(empl[i].name+empl[i].salary+"\n");
     }
+    // ritorno della pagina
+     bind.toFile('index.tpl',{}, 
+    function(data) 
+    {
+        //write response
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        res.end(data);
+    });	
 });
 
 //post per inserimento
