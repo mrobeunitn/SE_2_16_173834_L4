@@ -65,6 +65,29 @@ app.post('/inserimento', function(req,res){
     });	
 });
 
+//post per il delete
+
+app.post('/delete', function(req,res){
+    //qui recupero i dati e aggiungo all'array di impiegati
+    var empl = datajs.getEmployees();
+    var id_emp = req.body.idd;
+    //chiamo la funzione che si preoccupa dell'inserimento
+    scripts.deleteEmployee(id_emp);
+    console.log("-------------------------------------");
+    for(i = 0 ; i < empl.length; i++ ){
+        console.log(empl[i].name+empl[i].salary+"\n");
+    }
+    console.log(empl.length);
+    // ritorno della pagina
+     bind.toFile('index.tpl',{}, 
+    function(data) 
+    {
+        //write response
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        res.end(data);
+    });	
+});
+
 //post per inserimento
 
 app.post('/ricerca', function(req,res){

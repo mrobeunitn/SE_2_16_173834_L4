@@ -63,3 +63,14 @@ exports.insertEmployee = function insertEmployee(emp){
         
         data.addEmployee(emp);
 }
+
+
+//funzione per cancellare un empl
+
+exports.deleteEmployee = function deleteEmployee(id){
+    //chiamo la funzione search id per trovare chi eliminare 
+    var id_emp = this.searchId(id);
+    var employee = data.getEmployees();
+    //utilizzando la funzione degli array elimino l'elemento desiderato.
+    employee.splice(id_emp,1);
+}
