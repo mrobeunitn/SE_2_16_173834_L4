@@ -9,7 +9,7 @@
             <input type='submit' name='' id='' onclick="sendIdForm()" value='Search'>
         </form>
         
-        <button value="VisualizzaForm" id="vis" onclick="visualizzaForm()">VisualizzaForm</button>
+        <button value="formbutton" id="vis" onclick="visualizzaForm()">See Add/Delete Form</button>
         
         <form method='post' id='formAdd' action='http://127.0.0.1:5000/ricerca' style="display:none">
             <input type='number' name='id' id='id' placheholder='id' value="(:id:)">
@@ -19,5 +19,19 @@
             <input type='number' name='salary' id='salary' placeholder="salary" value='(:salary:)'  required>
             <input type='submit' placeholder="salary" value='Inserisci'  required onclick="sendForm()">
         </form>
+        
+        <h3> Search Results</h3>
+        <!-- form per la visualizzazione della ricerca-->
+          <table>
+            <tr><td>Id Employee</td><td>Name</td><td>Surname</td><td>Level</td><td>Salary</td></tr>
+            <tr>
+                <td><label id='idlabel'>(:id:)</label></td>
+                <td><label id='namelabel'>(:name:)</label></td>
+                <td><label id='surnamelabel'>(:surname:)</label></td>
+                <td><label id='levellabel'>(:level:)</label></td>
+                <td><label id='salarylabel'>(:salary:)</label></td>
+                <td><button placeholder="salary" value='Reset'  required onclick="resetLabels()">Reset</button></td>
+            </tr>
+        </table>
     </body>
 </html>

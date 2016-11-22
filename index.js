@@ -37,39 +37,30 @@ app.get('/', function(request, response)
         response.end(data);
     });
 });
-    //text = "lel";
-	//response.writeHead(200, {'Content-Type': 'text/html'});
-   // response.end(text);
 
-//post per ricerca
-/*
-app.post('/ricerca', function(req,res){
+//post per inserimento
+
+app.post('/inserimento', function(req,res){
     //qui cerco e inserisco nel form
      id = request.body.ids;
      var pos = searchId(id);
     if(pos != -1){   
     }
-});*/
+});
 
 //post per inserimento
 
 app.post('/ricerca', function(req,res){
+    //mi prendo l'id che viene cercato e poi richiamo la funzione di script che i cerca nell'array di employees se già è presente l'd cercato
     var userId = req.body.ids;
-    console.log("index"+userId);
     var employees = datajs.getEmployees();
-    console.log(employees[1]);
     var pos = scripts.searchId(userId) ;
-    console.log("script ok");
+    //inizializzo l'oggetto emp a 'non trovato' e '-1',perchè in caso non trovassi l'impiegato cercato setto con 'nontrovato' tutti i form nell'index
     var emp = {"id": "-1", "name": "Non esiste", "surname": "Non esiste", "level":"-1", "salary": "-1"};
     if(pos != -1){
         emp = employees[pos];
     }
     else{
-      /*  emp.id = null;
-        emp.name = null;
-        emp.surname = null;
-        emp.level = null;
-        emp.salary = null;*/
         console.log(emp);
         
     }
@@ -80,10 +71,6 @@ app.post('/ricerca', function(req,res){
         res.writeHead(200, {'Content-Type': 'text/html'});
         res.end(data);
     });	
-   //inserisc
-    /*text = "lel";
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end(text);*/ //console.log(util.inspect(req.body));//mapEmployees(request.body.id,request.body.name,request.body.surname,request.body.level,request.body.salary);
 });
 
 app.listen(app.get('port'), function() {

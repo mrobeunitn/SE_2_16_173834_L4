@@ -1,4 +1,11 @@
 
+
+function resetLabels(){
+    document.getElementById("idlabel").innerHTML = ""; document.getElementById("namelabel").innerHTML = "";
+    document.getElementById("surnamelabel").innerHTML = "";
+    document.getElementById("levellabel").innerHTML = "";
+    document.getElementById("salarylabel").innerHTML = "";
+}
 //funzione che utilizzo per mostrare o nascondere il form 
 function visualizzaForm(){
     if(document.getElementById("formAdd").style.display == 'none'){
@@ -12,12 +19,12 @@ function visualizzaForm(){
 //funzione per nascondere il form
 function hideForm(){
     document.getElementById("formAdd").style.display= 'none';
-    document.getElementById("vis").innerHTML = "VisualizzaForm";
+    document.getElementById("vis").innerHTML = "See Add/Delete Form";
 }
 
 function showForm(){
     document.getElementById("formAdd").style.display= 'block';
-    document.getElementById("vis").innerHTML = "NascondiForm";
+    document.getElementById("vis").innerHTML = "Hide Add/Delete form";
 }
 
 
@@ -61,7 +68,6 @@ function sendIdForm(){
     //get the form object
     var form= document.getElementById("searchId");
     // collect the form data while iterating over the inputs
-    alert(form);
     var data = {};
     for (var i = 0; i < form.length; ++i) {
         var input = form[i];
