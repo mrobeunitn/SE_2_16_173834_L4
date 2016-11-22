@@ -4,21 +4,21 @@
     </head>
     <body>
         
-         <form action='http://127.0.0.1:5000/ricerca' method='post'id='searchId' action='ricerca' style="display:block">
+         <form action='http://127.0.0.1:5000/ricerca' method='post'id='searchId' style="display:block" >
             <input type='number' name='ids' id='ids' placheholder='id' value="" required>
-             <button type='submit' name='' id='' onclick="sendIdForm()" value='Search'>Search</button>
+             <button type='submit' name='' id='' value='Search' onclick="sendIdForm()">Search</button>
         </form>
         
         
         <button type="button" value="formbutton" id="vis" onclick="visualizzaForm()">See Add/Delete Form</button>
         
-        <form method='post' id='formAdd' name='formAdd' action='http://127.0.0.1:5000/inserimento' style="display:none">
-            <input type='number' name='id' id='id' placheholder='id' value="(:id:)">
-            <input type='text' name='name' id='name' placeholder="name" value='(:name:)' required>
-            <input type='text' name='surname' id='surname' placeholder="surname" value='(:surname:)' required>
-            <input type='number' name='level' id='level' placeholder="level" value='(:level:)' required>
-            <input type='number' name='salary' id='salary' placeholder="salary" value='(:salary:)'  required>
-            <button type = "button" placeholder="salary" value='Inserisci'  required onclick="sendAddForm()">Send</button>
+        <form method='post' id='formAdd' name='formAdd'         action='http://127.0.0.1:5000/inserimento' style="display:none">
+            <input type='number' name='id' id='id' placheholder='id' value="">
+            <input type='text' name='name' id='name' placeholder="name" value='' required>
+            <input type='text' name='surname' id='surname' placeholder="surname" value='' required>
+            <input type='number' name='level' id='level' placeholder="level" value='' required>
+            <input type='number' name='salary' id='salary' placeholder="salary" value=''  required>
+            <button type = "button" placeholder="salary" value='Inserisci' onclick="sendAddForm()">Send</button>
         </form>
         
         <h3> Search Results</h3>

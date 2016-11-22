@@ -54,6 +54,7 @@ app.post('/inserimento', function(req,res){
     for(i = 0 ; i < empl.length; i++ ){
         console.log(empl[i].name+empl[i].salary+"\n");
     }
+    console.log(empl.length);
     // ritorno della pagina
      bind.toFile('index.tpl',{}, 
     function(data) 

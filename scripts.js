@@ -48,6 +48,18 @@ exports.insertEmployee = function insertEmployee(emp){
         emp.id = id;
     }
     
+    //vedo se c'è già un altro impiegato con un deterinato id e se c'è trasacrivo
+    i =0;
+    trovato = false;
+    while(i < employee.length && trovato == false){
+        if (employee[i].id == emp.id){
+            trovato = true;
+            employee[i] = emp;
+        }
+        i++;
+    }
     //se non trovo una posizione utile (un id libero) ritrono i = -1
-    data.addEmployee(emp);
+    if(trovato == false)
+        
+        data.addEmployee(emp);
 }

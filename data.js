@@ -20,8 +20,7 @@ exports.addEmployee = function addEmployee(emp){
     //inserisco e poi ordino 
     employee.push(emp);
     employee.sort(function(emp1,emp2){return emp1.id-emp2.id});
+    console.log("Inserisco empl");
 }
 mapEmployees(0,"Marco","Roberti",10,5);
 mapEmployees(1,"Marco","Roberti",10,5);
-
-console.log(employee.length);
