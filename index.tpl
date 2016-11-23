@@ -16,13 +16,14 @@
         
         <button type="button" value="formbutton" id="vis" onclick="visualizzaForm()">See Add/Delete Form</button>
         
-        <form method='post' id='formAdd' name='formAdd' onsubmit='sendAddForm()' style="display:none" action='/inserimento'>
+        <form method='post' id='formAdd' name='formAdd' style="display:none" action='/inserimento'>
             <input type='number' name='id' id='id' placheholder='id' value="">
             <input type='text' name='name' id='name' placeholder="name" value='' required>
             <input type='text' name='surname' id='surname' placeholder="surname" value='' required>
             <input type='number' name='level' id='level' placeholder="level" value='' required>
             <input type='number' name='salary' id='salary' placeholder="salary" value=''  required>
-            <button type = "submit" placeholder="salary" value='Inserisci'>Send</button>
+            <button type = "reset" placeholder="salary" value='Inserisci'
+                    onclick='sendAddForm()' >Send</button>
         </form>
         
         <h3> Search Results</h3>

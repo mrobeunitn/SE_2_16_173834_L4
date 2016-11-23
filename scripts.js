@@ -25,6 +25,7 @@ exports.searchId = function searchId(id){
 
 exports.insertEmployee = function insertEmployee(emp){
     var i =0;
+    //flag trovato che uso per gstire il while
     var trovato = false;
     var id;
     var employee = data.getEmployees();
@@ -32,17 +33,25 @@ exports.insertEmployee = function insertEmployee(emp){
     //se id è nullo inserisco in automatico
     if(emp.id == ""){
         
-        while(i < employee.length-1 && trovato == false){
+        while(i < employee.length && trovato == false){
             //in questo caso faccio delle assunzioni: utilizzo i numeri interi come id, quindi controllo se tra tra due impiegati in posizione i e i+1 c'è una differenza > 1, in questo caso vuol dire che in quelll'intervallo ci sono ids disponibili. Sono sicuro che sia univoco perchè ordino gli impiegati per id crescente, quindi sarà sempre univoco.
+            console.log("DIfferenze: "+employee[i].id+"   i   "+i);
+             if(employee[i].id != i ){
+                 console.log("sto inserendo l'id "+i)
+                 id = i;
+                 trovato = true;
+             }
+            /*
+           
             if( (employee[i+1].id-employee[i].id) > 1  ){
                 trovato = true;
                 id = i+1;
-            }
+            }*/
             i++;
         }
         //se sono tutti occupati quelli intermedi, do il successivo dell'ultimo
         if(trovato == false){
-            id = i+1;
+            id = employee.length;
         }
         console.log("ID DI DEFAULT ---> "+id);
         emp.id = id;
@@ -72,5 +81,6 @@ exports.deleteEmployee = function deleteEmployee(id){
     var id_emp = this.searchId(id);
     var employee = data.getEmployees();
     //utilizzando la funzione degli array elimino l'elemento desiderato.
-    employee.splice(id_emp,1);
+    if(id_emp != -1)
+        employee.splice(id_emp,1);
 }
