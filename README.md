@@ -1,10 +1,15 @@
+
+<h5> Come eseguire </h5>
+
 Per eseguire il file bisogna prima:
-    1) installare la libreria express con:  npm install --save express
-    2) installare la libreria bind con : npm install --save bind
-    3) installare la libreria body-parser con :  npm install --save body-parser
-    4) eseguire: node index.js
+    1) installare la libreria express con:  npm install --save express <br>
+    2) installare la libreria bind con : npm install --save bind <br>
+    3) installare la libreria body-parser con :  npm install --save body-parser <br>
+    4) eseguire: node index.js <br>
     
 Una volta compilato ed eseguito node, andare su 127.0.0.1:5000 (localhost).
+
+<h5> Desctizione </h5>
 
 Il primo form permete di cercare un impiegato utilizzando l'id. Gli id pre-inseriti sono: '0','1'.
 
