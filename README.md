@@ -1,5 +1,8 @@
 Per eseguire il file bisogna prima:
-    node index.js
+    1) installare la libreria express con:  npm install --save express
+    2) installare la libreria bind con : npm install --save bind
+    3) installare la libreria body-parser con :  npm install --save body-parser
+    4) eseguire: node index.js
     
 Una volta compilato ed eseguito node, andare su 127.0.0.1:5000 (localhost).
 
