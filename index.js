@@ -108,8 +108,14 @@ app.post('/ricerca', function(req,res){
     function(data) 
     {
         //write response
-        res.writeHead(200, {'Content-Type': 'text/html'});
-        res.end(data);
+        if(pos ==-1){
+            res.writeHead(404, {'Content-Type': 'text/html'});
+            res.end(data);
+        }
+        else{
+            res.writeHead(200, {'Content-Type': 'text/html'});
+            res.end(data);
+        }
     });	
 });
 
